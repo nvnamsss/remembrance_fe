@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://ec2-13-250-113-138.ap-southeast-1.compute.amazonaws.com",
+  baseURL: typeof import.meta.env.VITE_FAMOUS_QUOTES_HOST === "string" ? import.meta.env.VITE_FAMOUS_QUOTES_HOST : "localhost:8080",
   headers: {
     'Access-Control-Allow-Origin' : 'origin',
-    'Content-Security-Policy': 'upgrade-insecure-requests',
     'Content-Type': 'application/json'
   },
 });
