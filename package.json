@@ -2,9 +2,9 @@
   "name": "vite-react-typescript-tailwind-starter",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
-    "serve": "vite preview --port 3000 --host",
+    "serve": "vite preview --port 3000 --host 0.0.0.0",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "prepare": "husky install",
     "test": "jest"
