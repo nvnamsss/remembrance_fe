@@ -5,6 +5,7 @@ const instance = axios.create({
   headers: {
     'Access-Control-Allow-Origin' : 'origin',
     // 'Origin': 'localhost',
+    'Content-Security-Policy': 'upgrade-insecure-requests',
     'Content-Type': 'application/json'
   },
 });
