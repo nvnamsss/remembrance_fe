@@ -1,0 +1,2 @@
+VITE_FAMOUS_QUOTES_HOST=http://ec2-13-250-113-138.ap-southeast-1.compute.amazonaws.com
+VITE_FAMOUS_QUOTES_HOST=skm-service-container:8080
