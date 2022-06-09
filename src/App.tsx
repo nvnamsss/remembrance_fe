@@ -1,7 +1,6 @@
 import { ReactElement, useState, useEffect } from 'react'
 import { getDailyQuote, sendLikeRequest } from "./services/quote";
 
-
 function App(): ReactElement {
   let [quoteData, setQuoteData] = useState({
     "id": 0,

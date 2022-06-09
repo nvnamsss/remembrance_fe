@@ -1,8 +1,5 @@
 import axios from "../shares/axios";
-interface Meta {
-  code: number,
-  message: string,
-}
+import { Meta } from "./Base";
 
 interface LikeResponse {
   meta: Meta,
@@ -19,10 +16,10 @@ interface GetQuotesResponse {
 }
 
 interface Quotes {
-    id: number;
-    content: string;
-    author: string;
-    like: number;
+  id: number;
+  content: string;
+  author: string;
+  like: number;
 }
 
 export const getDailyQuote = async (): Promise<GetQuotesResponse> =>
@@ -31,9 +28,9 @@ export const getDailyQuote = async (): Promise<GetQuotesResponse> =>
   ).data;
 
 
-  export const sendLikeRequest = async (id: number, status: boolean): Promise<LikeResponse> =>
+export const sendLikeRequest = async (id: number, status: boolean): Promise<LikeResponse> =>
   (
     await axios.post(`famous-quotes/v1/quotes/like/${id}`, {
-      negative: status, 
+      negative: status,
     })
   ).data;
