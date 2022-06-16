@@ -21,8 +21,8 @@ function App(): ReactElement {
     call();
   }, []);
 
-  useEffect( () => {
-     async function call() {
+  useEffect(() => {
+    async function call() {
       let res = await sendLikeRequest(quoteData.id, false);
       console.log("like", res);
       setLike(res.data.like);
@@ -33,8 +33,8 @@ function App(): ReactElement {
     }
   }, [likeClicked]);
 
-  useEffect( () => {
-     async function call() {
+  useEffect(() => {
+    async function call() {
       let res = await sendLikeRequest(quoteData.id, true);
       console.log("dislike", res);
       setLike(res.data.like);
@@ -48,16 +48,16 @@ function App(): ReactElement {
     <div className="border border-gray-50 rounded-xl px-48 py-20">
       <header>
         <p className="text-4xl pb-3 font-quote">{quoteData.content}</p>
-        
+
         <p className="pb-3 pt-3">
           <code className="border border-1 pl-1 pr-1 pb-0.5 pt-0.5 rounded border-purple-400 font-mono text-sm bg-purple-100 text-purple-900">
-            { quoteData.author }
-          </code> 
+            {quoteData.author}
+          </code>
         </p>
         <p>Like: {like}</p>
         <p className='mt-10'>
-          <button className='bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded' onClick={()=> {setLikeClicked(!likeClicked)}} >Like</button>
-          <button className='bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded' onClick={()=> {setDislikeClicked(!dislikeClicked)}} >Dislike</button>
+          <button className='bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded' onClick={() => { setLikeClicked(!likeClicked) }} >Like</button>
+          <button className='bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded' onClick={() => { setDislikeClicked(!dislikeClicked) }} >Dislike</button>
         </p>
       </header>
     </div>

@@ -33,3 +33,4 @@ class CardWithImage extends React.Component<any, any, CardContent> {
     }
 }
 
+export default CardWithImage;

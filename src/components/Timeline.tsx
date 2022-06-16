@@ -30,3 +30,5 @@ class Timeline extends React.Component {
         );
     }
 }
+
+export default Timeline;

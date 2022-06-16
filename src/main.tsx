@@ -7,13 +7,14 @@ import Layout from "./pages/Layout";
 // import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import { SWRConfig } from "swr";
+import Wishes from './pages/Wishes';
 
 // import App from './App'
 
 export default function App() {
   return (
     <Routes>
-      <Route index element={<Layout />} />
+      <Route index element={<Wishes />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
