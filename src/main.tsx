@@ -22,7 +22,7 @@ export default function App() {
 
 // ReactDOM.render(
 //   <React.StrictMode>
-//     <App />
+//     <Wishes />
 //   </React.StrictMode>,
 //   document.getElementById('root')
 // )

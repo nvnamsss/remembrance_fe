@@ -7,7 +7,10 @@ import Timeline from "../components/Timeline";
 import Slider from 'react-touch-drag-slider'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import WishlistToBe from '../images/Wishlisttobe.png';
+import WishlistToBe from '../images/WishlistToBe.png';
+import DigitalCard from '../images/DigitalCard.png';
+import HappyBirthday from '../images/HappyBirthday.png';
+import WishlistToDanthanh from '../images/WishlistToDanthanh.png';
 // here we are importing some images 
 // but the Slider children can be an array of any element nodes, or your own components
 
@@ -18,57 +21,58 @@ function Wishes(): ReactElement {
     let [like, setLike] = useState(0)
     const [sidebarActive, setSidebarActive] = useState(false);
     const width = 800;
-    const height = 600; 
+    const height = 600;
+    const TimelineData = {
+        "items": [
+            {
+                "title": "hi mom",
+                "created_at": "Feb",
+                "content": "hi mom"
+            },
+            {
+                "title": "hi mom",
+                "created_at": "Feb",
+                "content": "hi mom"
+            }
+        ]
+    }
     return (
         <>
             <Title value="Happy birthday ddanthanhh" />
-            <div className="flex items-stretch">
-                {/* <div>
-                    <Timeline></Timeline>
-
-                </div> */}
-                <div className="flex">
-                    <img src={WishlistToBe} width={width} height={height} alt=""/>
-
-                </div>
-                <div className="flex">
-                    <a>
-                        <p>Hi mom</p>
-                    </a>
-                    <a>
-                        <img className="inline" src="assets/Happy birthday.png " width={width} height={height} alt=""/>
-                    </a>
-                </div>
-                <div className="flex">
-                    <img src="assets/Wishlist to danthanh.png " width={width} height={height} alt=""/>
-
-                </div>
-                <div className="flex">
-                    <img src="assets/Digital card.png " width={width} height={height} alt=""/>
-
-                </div>
-                {/* <header>
-
-                </header> */}
-
+            <div className="archive post-type-archive post-type-archive-changelog font-mktg hfeed no-sidebar hero-image">
+                <article className="border-bottom">
+                    <p>Sau vài tuần háo hức chờ quà thì cuối cùng bạn đã 24 rồi, mình cũng không còn hơn tuổi bạn nữa...ầy không sao a</p>
+                    <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative .border-bottom">
+                        <img className="center" src={HappyBirthday} alt="" width={width} height={height}/>
+                    </div>
+                </article>
+                <article>
+                    <p>Cách đây 3 tháng 3 ngày bạn có tặng mình kha khá lời chúc. Bạn chúc khá là hiệu nghiệm nên hầu như mình đều đã thực hiện được.
+                    Chỉ còn 1 điều mình chưa thực hiện được nhưng mình cũng không cần nữa - chính là eadbuds, bai earbuds.  </p>
+                    <br></br>
+                    <p>Mình cũng có nhiều điều giành cho bê, hi vọng đều sẽ thành sự thật</p>
+                    <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
+                        <img className="center" src={WishlistToBe}  width={width} height={height} alt="" />
+                    </div>
+                </article>
+                <article>
+                    <p>Và cả cho ddanthanhh nứa</p>
+                    <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
+                        <img className="center" src={WishlistToDanthanh} width={width} height={height} alt="" />
+                    </div>
+                </article>
+                <article>
+                    <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
+                        <img className="center" src={DigitalCard} width={width} height={height} alt="" />
+                    </div>
+                    <p>Iu thưnnnn</p>
+                </article>
+            </div>
+            <div className="archive post-type-archive post-type-archive-changelog font-mktg hfeed no-sidebar">
+            <Timeline items={TimelineData.items}></Timeline>
+ 
 
             </div>
-            {/* <div className="flex-grow px-[4vw] md:px-8 pb-8 pt-0 overflow-hidden flex flex-col items-stretch">
-                <Carousel>
-                    <div>
-                        <img src="assets/d1.jpg" />
-                        <p className="legend">Legend 1</p>
-                    </div>
-                    <div>
-                        <img src="assets/d2.jpg" />
-                        <p className="legend">Legend 2</p>
-                    </div>
-                    <div>
-                        <img src="assets/d3.jpg" />
-                        <p className="legend">Legend 3</p>
-                    </div>
-                </Carousel>
-            </div> */}
         </>
 
     )
