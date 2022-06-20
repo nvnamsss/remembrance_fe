@@ -6,8 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 // import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Wishes from "./pages/Wishes";
+import Remembrance from './pages/Remembrance';
+
 import { SWRConfig } from "swr";
-import Wishes from './pages/Wishes';
 
 // import App from './App'
 
@@ -15,6 +17,7 @@ export default function App() {
   return (
     <Routes>
       <Route index element={<Wishes />} />
+      <Route path="/remembrance" element={<Remembrance/>}/>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

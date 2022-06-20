@@ -134,3 +134,7 @@ body {
 .changelog-single-content-wrap {
     margin-left: 48px;
 }
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+    display: block;
+}

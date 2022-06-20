@@ -11,6 +11,7 @@ import WishlistToBe from '../images/WishlistToBe.png';
 import DigitalCard from '../images/DigitalCard.png';
 import HappyBirthday from '../images/HappyBirthday.png';
 import WishlistToDanthanh from '../images/WishlistToDanthanh.png';
+import Sidebar from "../components/Sidebar";
 // here we are importing some images 
 // but the Slider children can be an array of any element nodes, or your own components
 
@@ -22,23 +23,11 @@ function Wishes(): ReactElement {
     const [sidebarActive, setSidebarActive] = useState(false);
     const width = 800;
     const height = 600;
-    const TimelineData = {
-        "items": [
-            {
-                "title": "hi mom",
-                "created_at": "Feb",
-                "content": "hi mom"
-            },
-            {
-                "title": "hi mom",
-                "created_at": "Feb",
-                "content": "hi mom"
-            }
-        ]
-    }
+
     return (
         <>
             <Title value="Happy birthday ddanthanhh" />
+            <Sidebar></Sidebar>
             <div className="archive post-type-archive post-type-archive-changelog font-mktg hfeed no-sidebar hero-image">
                 <article className="border-bottom">
                     <p>Sau vài tuần háo hức chờ quà thì cuối cùng bạn đã 24 rồi, mình cũng không còn hơn tuổi bạn nữa...ầy không sao a</p>
@@ -68,11 +57,7 @@ function Wishes(): ReactElement {
                     <p>Iu thưnnnn</p>
                 </article>
             </div>
-            <div className="archive post-type-archive post-type-archive-changelog font-mktg hfeed no-sidebar">
-            <Timeline items={TimelineData.items}></Timeline>
- 
 
-            </div>
         </>
 
     )
