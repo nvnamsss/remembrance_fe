@@ -12,6 +12,10 @@ import DigitalCard from '../images/DigitalCard.png';
 import HappyBirthday from '../images/HappyBirthday.png';
 import WishlistToDanthanh from '../images/WishlistToDanthanh.png';
 import Sidebar from "../components/Sidebar";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 // here we are importing some images 
 // but the Slider children can be an array of any element nodes, or your own components
 
@@ -27,25 +31,25 @@ function Wishes(): ReactElement {
     return (
         <>
             <Title value="Happy birthday ddanthanhh" />
-            <Sidebar></Sidebar>
+            <Header></Header>
             <div className="archive post-type-archive post-type-archive-changelog font-mktg hfeed no-sidebar hero-image">
                 <article className="border-bottom">
-                    <p>Sau vài tuần háo hức chờ quà thì cuối cùng bạn đã 24 rồi, mình cũng không còn hơn tuổi bạn nữa...ầy không sao a</p>
+                    <p className="gutter-spacious">Sau vài tuần háo hức chờ quà thì cuối cùng bạn đã 24 rồi, mình cũng không còn hơn tuổi bạn nữa...ầy không sao a</p>
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative .border-bottom">
-                        <img className="center" src={HappyBirthday} alt="" width={width} height={height}/>
+                        <img className="center" src={HappyBirthday} alt="" width={width} height={height} />
                     </div>
-                </article>
-                <article>
-                    <p>Cách đây 3 tháng 3 ngày bạn có tặng mình kha khá lời chúc. Bạn chúc khá là hiệu nghiệm nên hầu như mình đều đã thực hiện được.
-                    Chỉ còn 1 điều mình chưa thực hiện được nhưng mình cũng không cần nữa - chính là eadbuds, bai earbuds.  </p>
+                </article >
+                <article className="border-bottom">
+                    <p className="gutter-spacious">Cách đây 3 tháng 3 ngày bạn có tặng mình kha khá lời chúc. Bạn chúc khá là hiệu nghiệm nên hầu như mình đều đã thực hiện được.
+                        Chỉ còn 1 điều mình chưa thực hiện được nhưng mình cũng không cần nữa - chính là eadbuds, bai earbuds.  </p>
                     <br></br>
-                    <p>Mình cũng có nhiều điều giành cho bê, hi vọng đều sẽ thành sự thật</p>
+                    <p className="gutter-spacious">Mình cũng có nhiều điều giành cho bê, hi vọng đều sẽ thành sự thật</p>
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
-                        <img className="center" src={WishlistToBe}  width={width} height={height} alt="" />
+                        <img className="center" src={WishlistToBe} width={width} height={height} alt="" />
                     </div>
                 </article>
                 <article>
-                    <p>Và cả cho ddanthanhh nứa</p>
+                    <p className="gutter-spacious">Và cả cho ddanthanhh nứa</p>
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
                         <img className="center" src={WishlistToDanthanh} width={width} height={height} alt="" />
                     </div>
@@ -54,10 +58,11 @@ function Wishes(): ReactElement {
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
                         <img className="center" src={DigitalCard} width={width} height={height} alt="" />
                     </div>
-                    <p>Iu thưnnnn</p>
+                    <p className="gutter-spacious">Iu thưnnnn</p>
+                    <br></br>
                 </article>
             </div>
-
+            <Footer></Footer>
         </>
 
     )

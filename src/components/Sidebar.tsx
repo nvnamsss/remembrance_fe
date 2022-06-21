@@ -19,13 +19,6 @@ const Sidebar: FC<SidebarProps> = ({ sidebarActive, setSidebarActive }) => {
           sidebarActive ? "translate-x-full" : "translate-x-0"
         }`}
       >
-        <Link to="/" className="flex gap-2 items-center">
-          <img className="w-6 h-6" src="/icon.png" alt="" />
-          <p className="font-semibold text-xl block sm:hidden xl:block">
-            FilmHot
-          </p>
-        </Link>
-
         <div className="mt-0 sm:mt-4 xl:mt-0 block sm:flex flex-col gap-0 sm:gap-4 xl:block xl:gap-0">
           <p className="text-gray-400 uppercase mt-10 mb-4 block sm:hidden xl:block">
             Menu
