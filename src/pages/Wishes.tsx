@@ -33,32 +33,34 @@ function Wishes(): ReactElement {
             <Title value="Happy birthday ddanthanhh" />
             <Header></Header>
             <div className="archive post-type-archive post-type-archive-changelog font-mktg hfeed no-sidebar hero-image">
-                <article className="border-bottom">
-                    <p className="gutter-spacious">Sau vài tuần háo hức chờ quà thì cuối cùng bạn đã 24 rồi, mình cũng không còn hơn tuổi bạn nữa...ầy không sao a</p>
+                <article className="">
+                    <p className="gutter-spacious font-modern-computer">Sau vài tuần háo hức chờ quà thì cuối cùng bạn đã 24 rồi, mình cũng không còn hơn tuổi bạn nữa...ầy không sao a</p>
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative .border-bottom">
                         <img className="center" src={HappyBirthday} alt="" width={width} height={height} />
                     </div>
                 </article >
-                <article className="border-bottom">
-                    <p className="gutter-spacious">Cách đây 3 tháng 3 ngày bạn có tặng mình kha khá lời chúc. Bạn chúc khá là hiệu nghiệm nên hầu như mình đều đã thực hiện được.
-                        Chỉ còn 1 điều mình chưa thực hiện được nhưng mình cũng không cần nữa - chính là eadbuds, bai earbuds.  </p>
+                <article className="">
+                    <p className="gutter-spacious font-modern-computer">Cách đây 3 tháng 3 ngày bạn có tặng mình kha khá lời chúc. Bạn chúc khá là hiệu nghiệm nên hầu như mình đều đã thực hiện được.
+                        Chỉ còn 1 điều mình chưa thực hiện được nhưng mình cũng không cần nữa - chính là earbuds, bai earbuds.  </p>
                     <br></br>
-                    <p className="gutter-spacious">Mình cũng có nhiều điều giành cho bê, hi vọng đều sẽ thành sự thật</p>
+                    <p className="gutter-spacious font-modern-computer">Mình cũng có nhiều điều giành cho bạn, cùng xem có bao nhiều điều thực hiện được nào.</p>
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
                         <img className="center" src={WishlistToBe} width={width} height={height} alt="" />
                     </div>
                 </article>
                 <article>
-                    <p className="gutter-spacious">Và cả cho ddanthanhh nứa</p>
+                    <p className="gutter-spacious font-modern-computer">Và cả cho ddanthanhh nứa.</p>
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
                         <img className="center" src={WishlistToDanthanh} width={width} height={height} alt="" />
                     </div>
                 </article>
                 <article>
+                    <p className="gutter-spacious font-modern-computer">Đây là lần đầu tiên mình viết thiệp cho người mình viết và hiển nhiên bạn là người đầu tiên được nhận ạ. Trong quá khứ mình từng bị nhắc nhở vì tặng quà thiếu đầu tư chất xám.</p>
+                    <p className="gutter-spacious font-modern-computer">Cũng không .</p>
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
                         <img className="center" src={DigitalCard} width={width} height={height} alt="" />
                     </div>
-                    <p className="gutter-spacious">Iu thưnnnn</p>
+                    <p className="gutter-spacious font-modern-computer">Iu thưnnnn.</p>
                     <br></br>
                 </article>
             </div>

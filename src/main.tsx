@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import NotFound from "./pages/NotFound";
 import Wishes from "./pages/Wishes";
 import Remembrance from './pages/Remembrance';
+import Birthday from './pages/Birthday';
 
 import { SWRConfig } from "swr";
 
@@ -16,7 +17,7 @@ import { SWRConfig } from "swr";
 export default function App() {
   return (
     <Routes>
-      <Route index element={<Wishes />} />
+      <Route index element={<Birthday/>} />
       <Route path="/remembrance" element={<Remembrance/>}/>
       <Route path="*" element={<NotFound />} />
     </Routes>
