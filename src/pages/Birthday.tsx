@@ -4,7 +4,7 @@ import Wishes from './Wishes';
 function Birthday(): ReactElement {
     const name = 'Đan Thanh';
     const month = 6;
-    const day = 25;
+    const day = 23;
 
     // get current time
     const currentTime = new Date();

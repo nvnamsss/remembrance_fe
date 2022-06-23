@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Wishes from "./pages/Wishes";
 import Remembrance from './pages/Remembrance';
 import Birthday from './pages/Birthday';
+import Trade from './pages/Trade';
 
 import { SWRConfig } from "swr";
 
@@ -19,6 +20,7 @@ export default function App() {
     <Routes>
       <Route index element={<Birthday/>} />
       <Route path="/remembrance" element={<Remembrance/>}/>
+      <Route path="/trade" element={<Trade/>}/>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

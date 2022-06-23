@@ -13,7 +13,7 @@ class Header extends React.Component {
                         <a href="/remembrance" className="mr-4 hover:underline md:mr-6"><strong>Remembrance</strong></a>
                     </li>
                     <li>
-                        <a href="#" className="mr-4 hover:underline md:mr-6"><strong>Trade</strong></a>
+                        <a href="/trade" className="mr-4 hover:underline md:mr-6"><strong>Trade</strong></a>
                     </li>
                 </ul>
             </footer>
