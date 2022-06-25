@@ -74,7 +74,6 @@ function Wishes(): ReactElement {
                     <p className="gutter-spacious font-modern-computer">Hết thiệp rồi, nhưng mà đây chưa phải là kết thúc, sau những món quà chính là sự khởi đầu ạ, khởi đầu cho những thói quen, văn hóa, niềm vui. Sau này cứ lâu lâu bạn lại ghé trang web này để xem xem liệu có tính năng nào được thêm vào không.</p>
                     <p className="gutter-spacious font-modern-computer">ddanthanhh.com sẽ luôn chào đón bạn a, và sẽ chỉ chào đón bạn... mà tất nhiên là hiện tại chưa có tính năng đó ròi, sau này sẽ có a, cuộc sống chỉ có thể tốt hơn.</p>
                     <p className="gutter-spacious font-modern-computer">Sinh nhật của bạn khién mình rất vui ó. Mình pass kì thi Master vào HCMUS để có tâm trạng tốt nhất mà còn chúc mừng sinh nhật bạn nè, mình có 1080p để bạn có thể nhìn mình nét hơn nè, mình vẫn kịp về nhà để bắt lấy khoảnh khắc bạn bước qua 24 tuổi này.</p>
-                    <p className="gutter-spacious font-modern-computer">Chúc mừng sinh nhật bạnnnn</p>
                     <p className="gutter-spacious font-modern-computer">Chưa hết đâu, tặng bạn tấm thiệp viết tay nè bạn mở ra xem xem.</p>
                     <div className="div-card-holder">
                         <ModalImage
@@ -86,6 +85,7 @@ function Wishes(): ReactElement {
 
                     <br></br>
                     <p className="gutter-spacious font-modern-computer">Đây là một lời hứa cũng như mong muốn của mình: Mình sẽ đi gặp bạn sớm thôi.</p>
+                    <p className="gutter-spacious font-modern-computer">Chúc mừng sinh nhật bạnnnn</p>
                     <br></br>
                     <p className="gutter-spacious font-modern-computer">Iu thưnnnn.</p>
                     <br></br>
