@@ -85,7 +85,7 @@ function Wishes(): ReactElement {
 
                     <br></br>
                     <p className="gutter-spacious font-modern-computer">Đây là một lời hứa cũng như mong muốn của mình: Mình sẽ đi gặp bạn sớm thôi.</p>
-                    <p className="gutter-spacious font-modern-computer">Chúc mừng sinh nhật bạnnnn</p>
+                    <p className="gutter-spacious font-modern-computer">Chúc mừng sinh nhật bạnnnn.</p>
                     <br></br>
                     <p className="gutter-spacious font-modern-computer">Iu thưnnnn.</p>
                     <br></br>
