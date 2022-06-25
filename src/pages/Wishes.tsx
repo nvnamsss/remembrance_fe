@@ -1,19 +1,14 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import Title from "../components/Title";
-import CardWithImage from "../components/CardWithImage";
-import SideBar from "../components/Sidebar";
-import { Link, useLocation } from "react-router-dom";
-import Timeline from "../components/Timeline";
-import Slider from 'react-touch-drag-slider'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import ModalImage from "react-modal-image-react-17";
 import WishlistToBe from '../images/WishlistToBe.png';
 import DigitalCard from '../images/DigitalCard.png';
 import HappyBirthday from '../images/HappyBirthday.png';
 import WishlistToDanthanh from '../images/WishlistToDanthanh.png';
-import Sidebar from "../components/Sidebar";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import CardClose from '../images/CardClose.jpg';
+import CardOpen from '../images/CardOpen.jpg';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 // here we are importing some images 
@@ -71,14 +66,26 @@ function Wishes(): ReactElement {
                     <p className="gutter-spacious font-modern-computer">Lựa tới lựa lui, gặp vấn đề này đến vấn đề khác... Mình có chút khó chịu a. Vậy là mình đã quyết định sẽ làm ra thứ gì đó cho riêng bạn mặc dù quà có thể không đẹp, có thể không chỉnh chu nhưng không sao cả, nếu cuộc sống chỉ có thể tốt hơn vậy thì quà cũng vậy a.</p>
                     <p className="gutter-spacious font-modern-computer">À mà, mấy món quà của mình tính ra cũng chỉ làm những thứ mình thường làm thôi :3. Cứ coi như có thêm 1 nền tảng để tương tác, đối với mình có càng nhiều lựa chọn sẽ càng có nhiều biến thể và giải pháp được tạo ra, đó là cách để mình khiến bản thân mình không nhàm chán.</p>
                     <p className="gutter-spacious font-modern-computer">Hồi tị em học lớp 1 ấy, buổi sáng ly cho tị em ăn có 4 món à, mỗi ngày 1 món, cứ xoay tua như vậy đến hết năm lớp 1... có vài món tị em ngán thật nhưng mà việc xoay tua như vậy cũng giúp tị em phần nào chịu được :3</p>
-                    
-                    
+
+
                     <div className="pb-4 pt-5 pt-md-7 col-12 col-md-5 position-relative">
                         <img className="center" src={DigitalCard} width={width} height={height} alt="" />
                     </div>
                     <p className="gutter-spacious font-modern-computer">Hết thiệp rồi, nhưng mà đây chưa phải là kết thúc, sau những món quà chính là sự khởi đầu ạ, khởi đầu cho những thói quen, văn hóa, niềm vui. Sau này cứ lâu lâu bạn lại ghé trang web này để xem xem liệu có tính năng nào được thêm vào không.</p>
                     <p className="gutter-spacious font-modern-computer">ddanthanhh.com sẽ luôn chào đón bạn a, và sẽ chỉ chào đón bạn... mà tất nhiên là hiện tại chưa có tính năng đó ròi, sau này sẽ có a, cuộc sống chỉ có thể tốt hơn.</p>
-                    
+                    <p className="gutter-spacious font-modern-computer">Sinh nhật của bạn khién mình rất vui ó. Mình pass kì thi Master vào HCMUS để có tâm trạng tốt nhất mà còn chúc mừng sinh nhật bạn nè, mình có 1080p để bạn có thể nhìn mình nét hơn nè, mình vẫn kịp về nhà để bắt lấy khoảnh khắc bạn bước qua 24 tuổi này.</p>
+                    <p className="gutter-spacious font-modern-computer">Chúc mừng sinh nhật bạnnnn</p>
+                    <p className="gutter-spacious font-modern-computer">Chưa hết đâu, tặng bạn tấm thiệp viết tay nè bạn mở ra xem xem.</p>
+                    <div className="div-card-holder">
+                        <ModalImage
+                            small={CardClose}
+                            large={CardOpen}
+                            alt="Card"
+                        />
+                    </div>
+
+                    <br></br>
+                    <p className="gutter-spacious font-modern-computer">Đây là một lời hứa cũng như mong muốn của mình: Mình sẽ đi gặp bạn sớm thôi.</p>
                     <br></br>
                     <p className="gutter-spacious font-modern-computer">Iu thưnnnn.</p>
                     <br></br>
