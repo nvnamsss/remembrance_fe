@@ -18,7 +18,7 @@ import { SWRConfig } from "swr";
 export default function App() {
   return (
     <Routes>
-      <Route index element={<Birthday/>} />
+      <Route index element={<Wishes/>} />
       <Route path="/remembrance" element={<Remembrance/>}/>
       <Route path="/trade" element={<Trade/>}/>
       <Route path="*" element={<NotFound />} />

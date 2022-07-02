@@ -12,7 +12,6 @@ function Trade(): ReactElement {
                 <h1 className="gutter-spacious font-modern-computer">- Đan thanh có thể trade thứ đan thanh có để lấy thứ đan thanh cần</h1>
                 <h1 className="gutter-spacious font-modern-computer">- Sẽ có hệ thống lưu trữ cho đan thanh ạ :3</h1>
                 <h1 className="gutter-spacious font-modern-computer">- Có cả hệ thống promotion toàn diện, xịn xò gồm những tính năng chỉ có lợi cho đan thanh :3</h1>
-                <h1 className="gutter-spacious font-modern-computer">- Có cả hệ thống promotion toàn diện, xịn xò gồm những tính năng chỉ có lợi cho đan thanh :3</h1>
             </div>
             <Footer></Footer>
         </>
