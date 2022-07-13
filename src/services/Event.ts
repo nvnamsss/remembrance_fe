@@ -12,7 +12,8 @@ export interface EventData {
     name: string,
     description: string,
     type: string,
-    content: string
+    content: string,
+    tags: string[],
 }
 
 export interface ListEventRequest {
@@ -32,6 +33,7 @@ export interface ListEventData {
     description: string,
     type: string,
     content: string
+    tags: string[],
 }
 
 export const getEvent = async (id: number): Promise<GetEventResponse> =>

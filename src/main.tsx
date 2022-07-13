@@ -12,17 +12,24 @@ import Birthday from './pages/Birthday';
 import Trade from './pages/Trade';
 
 import { SWRConfig } from "swr";
+import AuthProvider from './contexts/Auth';
+import RequireAuth from './components/RequireAuth';
+import SignIn from './pages/SignIn';
 
 // import App from './App'
 
 export default function App() {
   return (
     <Routes>
-      <Route index element={<Wishes/>} />
-      <Route path="/remembrance" element={<Remembrance/>}/>
-      <Route path="/trade" element={<Trade/>}/>
+      <Route index element={<Wishes />} />
+      <Route path="/login" element={<SignIn></SignIn>}></Route>
+      <Route element={<RequireAuth />}>
+        <Route path="/remembrance" element={<Remembrance />} />
+        <Route path="/trade" element={<Trade />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
+
   );
 }
 
