@@ -10,11 +10,12 @@ const RequireAuth = ({ allowedRoles } : any) => {
         // <AuthContext.Consumer>
         //     {value => value.auth.authorized ? <Outlet></Outlet> : <Navigate to="/login" state={{ from: location }} />}
         // </AuthContext.Consumer>
-        auth?.auth.authorized === true
-            ? <Outlet />
-            : auth?.auth?.user
-                ? <Navigate to="/unauthorized" state={{ from: location }} replace />
-                : <Navigate to="/login" state={{ from: location }} replace />
+        <Outlet></Outlet>
+        // auth?.auth.authorized === true
+        //     ? <Outlet />
+        //     : auth?.auth?.user
+        //         ? <Navigate to="/unauthorized" state={{ from: location }} replace />
+        //         : <Navigate to="/login" state={{ from: location }} replace />
     );
 }
 

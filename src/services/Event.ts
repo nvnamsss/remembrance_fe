@@ -32,8 +32,9 @@ export interface ListEventData {
     name: string,
     description: string,
     type: string,
-    content: string
+    content: string,
     tags: string[],
+    created_at: string,
 }
 
 export const getEvent = async (id: number): Promise<GetEventResponse> =>
