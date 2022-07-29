@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useReducer, useState } from "react";
 import { AuthenticationData, AuthProviderData } from "../dtos/Auth";
 
-const AuthContext = React.createContext<AuthProviderData>(new AuthProviderData(new AuthenticationData(), undefined));
-
-export const AuthProvider = ({ children }: any) => {
-    const [auth, setAuth] = useState(new AuthenticationData());
-
-    return (
-        <AuthContext.Provider value={{auth, setAuth}}>
-            {children}
-        </AuthContext.Provider>
-    )
+export interface AuthProps {
+    data: any, 
+    setState: any
 }
 
-export default AuthContext;
+export const AuthContext = React.createContext<AuthProviderData>({} as AuthProviderData);
+
+export const AuthProvider: React.FC<AuthProps> = ({data, setState, children }: any) => {
+    const [auth, setAuth] = useState(data);
+    console.log("init state: ", auth);
+    const updateAuth = (authData: AuthenticationData) => {
+        console.log('before update authData', authData);
+        setAuth({ ...auth, ...authData });
+        setState(authData);
+        console.log('after update authData', auth);
+    };
+
+    // console.log('auth provider', auth)
+    return (
+        <>
+            <AuthContext.Provider value={{ auth: auth, updateAuth: updateAuth }}>
+                {children}
+            </AuthContext.Provider>
+        </>
+
+    )
+}

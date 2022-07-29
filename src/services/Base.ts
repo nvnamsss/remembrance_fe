@@ -1,5 +1,3 @@
-import axios from "../shares/axios";
-
 export interface Meta {
     status: number,
     message: string,

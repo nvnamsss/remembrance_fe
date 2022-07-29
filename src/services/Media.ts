@@ -1,4 +1,4 @@
-import axios from "../shares/axios";
+import {remembranceInstance} from "../shares/axios";
 import { Meta } from "./Base";
 
 interface GetMediaRequest {

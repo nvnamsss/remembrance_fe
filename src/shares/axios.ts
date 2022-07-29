@@ -1,11 +1,21 @@
 import axios from "axios";
 
-const instance = axios.create({
-  baseURL: typeof import.meta.env.VITE_FAMOUS_QUOTES_HOST === "string" ? import.meta.env.VITE_FAMOUS_QUOTES_HOST : "localhost:8080",
+export const remembranceInstance = axios.create({
+  baseURL: typeof import.meta.env.REMEMBRANCE_HOST === "string" ? import.meta.env.REMEMBRANCE_HOST : "localhost:8080",
   headers: {
-    'Access-Control-Allow-Origin' : 'origin',
+    'Access-Control-Allow-Origin': 'origin',
     'Content-Type': 'application/json'
   },
 });
 
-export default instance;
+
+
+export const authInstance = axios.create({
+  baseURL: typeof import.meta.env.AUTH_HOST === "string" ? import.meta.env.AUTH_HOST : "http://localhost:8081",
+  headers: {
+    'Access-Control-Allow-Origin': 'origin',
+    'Content-Type': 'application/json'
+  },
+});
+
+

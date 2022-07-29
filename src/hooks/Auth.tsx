@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import AuthContext from "../contexts/Auth";
-import { AuthenticationData, AuthProviderData } from "../dtos/Auth";
+import {AuthContext} from "../contexts/Auth";
 
 const useAuth = () => {
-    return useContext<AuthProviderData>(AuthContext);
+    const auth = useContext(AuthContext);
+    if (auth === undefined) {
+        throw new Error("useAuthState must be used within a AuthProvider");
+    }
+    return auth;
 }
-
 export default useAuth;

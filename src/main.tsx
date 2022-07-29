@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import './App.css'
 
@@ -12,23 +12,29 @@ import Birthday from './pages/Birthday';
 import Trade from './pages/Trade';
 
 import { SWRConfig } from "swr";
-import AuthProvider from './contexts/Auth';
+import { AuthProvider } from './contexts/Auth';
 import RequireAuth from './components/RequireAuth';
 import SignIn from './pages/SignIn';
+import { AppProvider } from './contexts/App';
+import { AuthenticationData } from './dtos/Auth';
 
 // import App from './App'
 
 export default function App() {
+  const [auth, setState] = useState({})
   return (
-    <Routes>
-      <Route index element={<Wishes />} />
-      <Route path="/login" element={<SignIn></SignIn>}></Route>
-      <Route element={<RequireAuth />}>
-        <Route path="/remembrance" element={<Remembrance />} />
-        <Route path="/trade" element={<Trade />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <AuthProvider data={auth} setState={setState}>
+
+      <Routes>
+        <Route index element={<Wishes />} />
+        <Route path="/login" element={<SignIn></SignIn>}></Route>
+        <Route element={<RequireAuth />}>
+          <Route path="/remembrance" element={<Remembrance />} />
+          <Route path="/trade" element={<Trade />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AuthProvider>
 
   );
 }
@@ -42,14 +48,10 @@ export default function App() {
 
 ReactDOM.render(
   <BrowserRouter>
-    <SWRConfig
-      value={{
-        revalidateOnFocus: false,
-        shouldRetryOnError: false,
-      }}
-    >
-      <App />
-    </SWRConfig>
+    <Routes>
+      <Route path="/*" element={<App />} />
+    </Routes>
   </BrowserRouter>,
+
   document.getElementById("root")
 );

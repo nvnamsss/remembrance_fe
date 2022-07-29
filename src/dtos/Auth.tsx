@@ -1,18 +1,22 @@
 export class AuthenticationData {
-    roles: number[];
     user: string;
-    constructor() {
-        this.roles = [];
-        this.user = "";
+    access_token: string;
+    refresh_token: string;
+    authorized: boolean;
+    constructor(user: string, access_token: string, refresh_token: string, authorized: boolean) {
+        this.user = user;
+        this.access_token = access_token;
+        this.refresh_token = refresh_token;
+        this.authorized = authorized;
     }
 }
 
 export class AuthProviderData {
     auth: AuthenticationData
-    setAuth: undefined | React.Dispatch<React.SetStateAction<AuthenticationData>>
+    updateAuth: (a: AuthenticationData) => void
 
-    constructor(auth: AuthenticationData, setAuth: undefined|React.Dispatch<React.SetStateAction<AuthenticationData>>) {
+    constructor(auth: AuthenticationData, updateAuth: (a: AuthenticationData) => void) {
         this.auth = auth;
-        this.setAuth = setAuth;
+        this.updateAuth = updateAuth;
     }
 }

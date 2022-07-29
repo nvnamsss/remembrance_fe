@@ -1,4 +1,4 @@
-import axios from "../shares/axios";
+import {remembranceInstance} from "../shares/axios";
 import { Meta, PaginationMeta } from "./Base";
 
 export interface GetEventResponse {
@@ -38,13 +38,13 @@ export interface ListEventData {
 
 export const getEvent = async (id: number): Promise<GetEventResponse> =>
     (
-        await axios.get(`ddanthanhh/v1/events/${id}`, {})
+        await remembranceInstance.get(`ddanthanhh/v1/events/${id}`, {})
     ).data;
 
 
 export const listEvent = async (req: ListEventRequest): Promise<ListEventResponse> =>
     (
-        await axios.post(`ddanthanhh/v1/events`, {
+        await remembranceInstance.post(`ddanthanhh/v1/events`, {
             page: req.page,
             page_size: req.page_size,
         })

@@ -1,4 +1,4 @@
-import axios from "../shares/axios";
+import { remembranceInstance } from "../shares/axios";
 import { Meta } from "./Base";
 
 interface LikeResponse {
@@ -24,13 +24,13 @@ interface Quotes {
 
 export const getDailyQuote = async (): Promise<GetQuotesResponse> =>
   (
-    await axios.get("famous-quotes/v1/quotes", {})
+    await remembranceInstance.get("famous-quotes/v1/quotes", {})
   ).data;
 
 
 export const sendLikeRequest = async (id: number, status: boolean): Promise<LikeResponse> =>
   (
-    await axios.post(`famous-quotes/v1/quotes/like/${id}`, {
+    await remembranceInstance.post(`famous-quotes/v1/quotes/like/${id}`, {
       negative: status,
     })
   ).data;
