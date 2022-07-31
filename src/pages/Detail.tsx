@@ -21,7 +21,7 @@ function Detail(): ReactElement {
         }
 
         }, [likeClicked]);
-
+        
     // useEffect(() => {
     //     async function call() {
     //         let res = await sendLikeRequest(quoteData.id, true);
