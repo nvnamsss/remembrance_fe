@@ -1,78 +1,75 @@
-import { off } from 'process';
+import { time } from 'console';
 import React, { ReactElement, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { doLogin, useAuthDispatch, useAuthState } from '../contexts/Auth';
 import { AuthenticationData } from '../dtos/Auth';
-import useAuth from '../hooks/Auth';
 import { AuthRequest, signin } from '../services/Auth';
 
 function SignIn(): ReactElement {
-    const auth = useAuth();
-    // const {app, setApp} = useApp();
-    console.log("auth from signin", auth)
+    console.log(import.meta.env.VITE_REMEMBRANCE_HOST)
+    const dispatch = useAuthDispatch();
     const navigate = useNavigate();
     const location = useLocation();
     const from = (location.state as any)?.from?.pathname || "/";
 
-
-    // const userRef = useRef();
-    // const errRef = useRef();
+    const auth = useAuthState();
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
-    const [errMsg, setErrMsg] = useState('');
 
+    console.log("auth", auth)
+    if (auth["user"]) {
+        navigate(from, {replace: false});
+        setTimeout(() => {
+        }, 1000)
+        // return;
+    }
     useEffect(() => {
         // userRef.current.focus()
     }, [])
 
     useEffect(() => {
-        setErrMsg('');
     }, [user, pwd])
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
-        let req: AuthRequest = {
-            username: user,
-            password: pwd,
-        }
-        let res = await signin(req);
-        if (res.meta.status != 200) {
-            setErrMsg(res.meta.message)
-            return false;
-        }
-        
-        // let authData: AuthenticationData = new AuthenticationData();
-        if (auth !== null) {
-            console.log("Hi mom");
-            
-            // let authData = auth.auth;
-            // authData.user = req.username;
-            // // authData.access_token = res.data.access_token;
-            // // authData.refresh_token = res.data.refresh_token;
-            // authData.authorized = true;
-            let data : AuthenticationData = new AuthenticationData(
-                    req.username,
-                    res.data.access_token,
-                    res.data.refresh_token,
-                    true,
-            )
-            console.log("DAta", data);
-            
-            auth.updateAuth(data);
-            // setApp(data);
-        }
-        console.log("navigate to:", from)
-        navigate(from, { replace: true });
-
-        // setUser('');
-        // setPwd('');
-        console.log("authenticate: ", res); 
-        // async function call() : Promise<boolean>{
-
-        //     return true
+        doLogin(dispatch, user, pwd);
+        return;
+        // let req: AuthRequest = {
+        //     username: user,
+        //     password: pwd,
         // }
-        // let result = await call();
-        // if (result) {
+        // let res = await signin(req);
+        // if (res.meta.status != 200) {
+        //     setErrMsg(res.meta.message)
+        //     return false;
         // }
+
+        // // let authData: AuthenticationData = new AuthenticationData();
+        // if (auth !== null) {
+        //     console.log("Hi mom");
+
+        //     // let authData = auth.auth;
+        //     // authData.user = req.username;
+        //     // // authData.access_token = res.data.access_token;
+        //     // // authData.refresh_token = res.data.refresh_token;
+        //     // authData.authorized = true;
+        //     let data : AuthenticationData = new AuthenticationData(
+        //             req.username,
+        //             res.data.access_token,
+        //             res.data.refresh_token,
+        //             true,
+        //     )
+        //     console.log("DAta", data);
+
+        //     auth.updateAuth(data);
+        //     // setApp(data);
+        // }
+        // console.log("navigate to:", from)
+        // navigate(from, { replace: true });
+
+        // // setUser('');
+        // // setPwd('');
+        // console.log("authenticate: ", res); 
     }
 
     return (

@@ -1,30 +1,20 @@
-import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import './App.css'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-// import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Wishes from "./pages/Wishes";
 import Remembrance from './pages/Remembrance';
-import Birthday from './pages/Birthday';
 import Trade from './pages/Trade';
 
-import { SWRConfig } from "swr";
 import { AuthProvider } from './contexts/Auth';
 import RequireAuth from './components/RequireAuth';
 import SignIn from './pages/SignIn';
-import { AppProvider } from './contexts/App';
-import { AuthenticationData } from './dtos/Auth';
-
-// import App from './App'
 
 export default function App() {
-  const [auth, setState] = useState({})
   return (
-    <AuthProvider data={auth} setState={setState}>
 
+    <BrowserRouter>
       <Routes>
         <Route index element={<Wishes />} />
         <Route path="/login" element={<SignIn></SignIn>}></Route>
@@ -34,7 +24,8 @@ export default function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </AuthProvider>
+
+    </BrowserRouter>
 
   );
 }
@@ -47,11 +38,9 @@ export default function App() {
 // )
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/*" element={<App />} />
-    </Routes>
-  </BrowserRouter>,
+  <AuthProvider>
+    <App></App>
+  </AuthProvider>,
 
   document.getElementById("root")
 );

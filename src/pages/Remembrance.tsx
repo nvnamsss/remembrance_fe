@@ -12,7 +12,7 @@ function Remembrance(): ReactElement {
     const [keyword, setKeyword] = useState("");
     const [total, setTotal] = useState(0);
     const timeoutRef = useRef<any>(null);
-
+    
     let page_size = 20;
     async function call() {
         let res = await listEvent({
