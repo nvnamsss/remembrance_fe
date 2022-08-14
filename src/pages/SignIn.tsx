@@ -1,3 +1,4 @@
+import { time } from 'console';
 import React, { ReactElement, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { doLogin, useAuthDispatch, useAuthState } from '../contexts/Auth';
@@ -18,8 +19,12 @@ function SignIn(): ReactElement {
         navigate(from, {replace: false});
         setTimeout(() => {
         }, 1000)
-        return;
     }
+    useEffect(() => {
+    }, [])
+
+    useEffect(() => {
+    }, [user, pwd])
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
