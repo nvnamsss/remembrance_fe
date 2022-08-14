@@ -22,8 +22,6 @@ function Remembrance(): ReactElement {
         });
         
         let result = [];
-        console.log(res);
-        
         if (res.data != null) {
             res.data.forEach(element => {
                 result.push({

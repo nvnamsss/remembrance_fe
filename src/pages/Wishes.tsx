@@ -15,11 +15,6 @@ import Header from "../components/Header";
 // but the Slider children can be an array of any element nodes, or your own components
 
 function Wishes(): ReactElement {
-    let [quoteData, setEventData] = useState({})
-    let [likeClicked, setLikeClicked] = useState(true)
-    let [dislikeClicked, setDislikeClicked] = useState(true)
-    let [like, setLike] = useState(0)
-    const [sidebarActive, setSidebarActive] = useState(false);
     const width = 800;
     const height = 600;
 

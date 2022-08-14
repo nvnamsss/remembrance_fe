@@ -1,4 +1,3 @@
-import { time } from 'console';
 import React, { ReactElement, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { doLogin, useAuthDispatch, useAuthState } from '../contexts/Auth';
@@ -6,7 +5,6 @@ import { AuthenticationData } from '../dtos/Auth';
 import { AuthRequest, signin } from '../services/Auth';
 
 function SignIn(): ReactElement {
-    console.log(import.meta.env.VITE_REMEMBRANCE_HOST)
     const dispatch = useAuthDispatch();
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,19 +14,12 @@ function SignIn(): ReactElement {
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
 
-    console.log("auth", auth)
     if (auth["user"]) {
         navigate(from, {replace: false});
         setTimeout(() => {
         }, 1000)
-        // return;
+        return;
     }
-    useEffect(() => {
-        // userRef.current.focus()
-    }, [])
-
-    useEffect(() => {
-    }, [user, pwd])
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
