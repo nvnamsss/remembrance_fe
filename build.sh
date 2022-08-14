@@ -1,5 +1,5 @@
 #/bin/bash
-image_name=skm-fe
+image_name=remembrance-fe
 echo "REMOVING OLD IMAGE"
 docker image rm -f $image_name
 echo "BUILDING NEW IMAGE"
