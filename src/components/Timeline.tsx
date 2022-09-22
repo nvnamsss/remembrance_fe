@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom'
+import { CommentItem, Comment } from './Comment';
 
 export interface TimelineData {
     items: TimelineItem[]
 }
 
 export interface TimelineItem {
+    id: number,
     title: string,
     occurred_at: string,
     content: string,
     tags: string[],
+    comments: CommentItem[],
 }
+
 class Timeline extends React.Component<any, any, TimelineData>  {
     constructor(props: any) {
         super(props);
@@ -61,6 +64,8 @@ class Timeline extends React.Component<any, any, TimelineData>  {
                                         </div>
 
                                     </div>
+                                    
+                                    <Comment items={item.comments} event_id={item.id}></Comment>
                                 </article>
 
                             )

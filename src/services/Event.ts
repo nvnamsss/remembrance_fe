@@ -1,4 +1,4 @@
-import {remembranceInstance} from "../shares/axios";
+import { remembranceInstance } from "../shares/axios";
 import { Meta, PaginationMeta } from "./Base";
 
 export interface GetEventResponse {
@@ -16,19 +16,19 @@ export interface EventData {
     tags: string[],
 }
 
-export interface ListEventRequest {
+export interface SearchEventRequest {
     page: number,
     page_size: number,
     keyword: string,
 
 }
 
-export interface ListEventResponse {
+export interface SearchEventResponse {
     meta: PaginationMeta,
-    data: ListEventData[],
+    data: SearchEventData[],
 }
 
-export interface ListEventData {
+export interface SearchEventData {
     id: number,
     code: string,
     name: string,
@@ -37,6 +37,26 @@ export interface ListEventData {
     content: string,
     tags: string[],
     occurred_at: string,
+    comments: SearchEventComment[],
+}
+
+export interface SearchEventComment {
+    event_id: number,
+    user_id: number,
+    comment: string,
+    commented_by: string,
+    created_at: string,
+}
+
+export interface CommentRequest {
+    event_id: number,
+    user_id: number,
+    comment: string,
+    commented_by: string,
+}
+
+export interface CommentResponse {
+    meta: Meta,
 }
 
 export const getEvent = async (id: number): Promise<GetEventResponse> =>
@@ -45,7 +65,7 @@ export const getEvent = async (id: number): Promise<GetEventResponse> =>
     ).data;
 
 
-export const listEvent = async (req: ListEventRequest): Promise<ListEventResponse> =>
+export const searchEvent = async (req: SearchEventRequest): Promise<SearchEventResponse> =>
     (
         await remembranceInstance.get(`remembrance/v1/event`, {
             params: {
@@ -56,3 +76,6 @@ export const listEvent = async (req: ListEventRequest): Promise<ListEventRespons
         })
     ).data;
 
+export const comment = async (req: CommentRequest): Promise<CommentResponse> => (
+    await remembranceInstance.post(`remembrance/v1/event/${req.event_id}/comment`, req)
+).data;

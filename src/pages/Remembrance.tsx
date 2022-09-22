@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import JsonView from "../components/JsonView";
 import Timeline from "../components/Timeline";
-import { getEvent, listEvent } from "../services/Event";
+import { getEvent, searchEvent } from "../services/Event";
 
 function Remembrance(): ReactElement {
     const [data, setData] = useState([])
@@ -15,25 +15,27 @@ function Remembrance(): ReactElement {
     
     let page_size = 5;
     async function call() {
-        let res = await listEvent({
+        let res = await searchEvent({
             page: page,
             page_size: page_size,
             keyword: keyword,
         });
+        console.log("list event", res.data);
         
         let result = [];
         if (res.data != null) {
             res.data.forEach(element => {
                 result.push({
+                    "id": element.id,
                     "title": element.name,
                     "occurred_at": element.occurred_at,
                     "content": element.content,
-                    "tags": element.tags
+                    "tags": element.tags,
+                    "comments": element.comments,
                 })
             });
         }
         
-        console.log(res.data);
         
         setLastPage(page* page_size > res.meta.total);
         return result;

@@ -5,6 +5,7 @@ import { AuthRequest, signin } from '../services/Auth';
 export interface Data {
     status: string,
     user: null | string,
+    access_token: number,
 }
 const initialState = {
     status: "idle",
@@ -47,17 +48,18 @@ function AuthProvider(props) {
     );
 }
 
-async function doLogin(dispatch, user, password) {
+function doLogin(dispatch, user, access_token) {
     try {
         dispatch({ status: "pending" });
 
-        const result = await signin({
-            username: user,
-            password: password,
-        });
+        // const result = await signin({
+        //     username: user,
+        //     password: password,
+        // });
         dispatch({
             status: "resolved",
-            user: result,
+            user: user,
+            access_token: access_token,
             error: null
         });
     } catch (error) {

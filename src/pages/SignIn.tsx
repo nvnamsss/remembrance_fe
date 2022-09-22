@@ -14,26 +14,39 @@ function SignIn(): ReactElement {
     const auth = useAuthState();
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
+    const [submitted, setSubmitted] = useState(0);
 
-    if (auth["user"]) {
-        navigate(from, {replace: false});
-        setTimeout(() => {
-        }, 1000)
-    }
     useEffect(() => {
+        if (auth["user"]) {
+            navigate(from, {replace: false});
+        }
     }, [])
 
     useEffect(() => {
+
     }, [user, pwd])
 
-    const handleSubmit = (e: any) => {
+    useEffect(() => {
+        if (auth["user"]) {
+            navigate(from, {replace: false});
+        }
+    }, [submitted])
+
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-        doLogin(dispatch, user, pwd);
+        let req: AuthRequest = {
+            username: user,
+            password: pwd,
+        }
+        let res = await signin(req);
+        if (res.meta.status != 200) {
+            return;
+        }
+
+        doLogin(dispatch, user, res.data.access_token);
+        setSubmitted(submitted + 1);
         return;
-        // let req: AuthRequest = {
-        //     username: user,
-        //     password: pwd,
-        // }
+
         // let res = await signin(req);
         // if (res.meta.status != 200) {
         //     setErrMsg(res.meta.message)

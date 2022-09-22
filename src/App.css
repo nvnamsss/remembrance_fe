@@ -108,7 +108,7 @@ body {
 }
 
 .flex-wrap {
-    flex-wrap: wrap !important;
+    flex-wrap: wrap;
 }
 
 .position-relative {
@@ -166,9 +166,6 @@ body {
     margin-left: 48px;
 }
 
-.changelog-single-details {
-
-}
 
 .mx-auto {
     margin-right: auto !important;
@@ -536,4 +533,47 @@ button, input {
 
 .text-align-center {
     text-align: center;
+}
+
+.comment-header {
+    padding-left: 48px;
+}
+
+.comment-list {
+    padding-left: 48px;
+}
+
+.comment-li {
+    padding-right: 48px;
+}
+
+.comment-content {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 16px;
+}
+
+.comment-utilities {
+    clear: both;
+}
+
+.comment-box {
+    padding-left: 48px;
+}
+
+.comment-box-input {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 16px;
+    width: 400px;
+}
+
+.comment-box-send-button {
+    margin-left: 8px;
 }
