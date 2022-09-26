@@ -20,8 +20,8 @@ export interface SearchEventRequest {
     page: number,
     page_size: number,
     keyword: string,
-
-}
+    type: string,
+}   
 
 export interface SearchEventResponse {
     meta: PaginationMeta,
@@ -72,6 +72,7 @@ export const searchEvent = async (req: SearchEventRequest): Promise<SearchEventR
                 page: req.page,
                 page_size: req.page_size,
                 keyword: req.keyword,
+                type: req.type
             }
         })
     ).data;

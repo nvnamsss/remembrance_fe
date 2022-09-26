@@ -577,3 +577,12 @@ button, input {
 .comment-box-send-button {
     margin-left: 8px;
 }
+
+.remembrance-search {
+    margin-right: 32px;
+}
+
+.remembrance-selected {
+    height: 40px;
+    width: 140px;
+}
