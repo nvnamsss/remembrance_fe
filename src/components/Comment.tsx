@@ -20,13 +20,11 @@ export const Comment: FC<CommentData> = ({ event_id, items }) => {
     const [data, setData] = useState(items);
     const [content, setContent] = useState("");
     async function handleSubmit() {
-        console.log("submitting", "ddanthanhh");
-
         let req: CommentRequest = {
             event_id: event_id,
-            user_id: 1,
+            user_id: auth["profile"]["account_id"],
             comment: content,
-            commented_by: auth["user"],
+            commented_by: auth["profile"]["display_name"],
         }
         console.log("submitting", req);
 
@@ -34,9 +32,9 @@ export const Comment: FC<CommentData> = ({ event_id, items }) => {
         console.log(res);
         if (res.meta.status == 200) {
             let item: CommentItem = {
-                user_id: 1,
+                user_id: auth["profile"]["account_id"],
                 comment: content,
-                commented_by: auth["user"],
+                commented_by: auth["profile"]["display_name"],
                 created_at: new Date().toDateString(),
             }
             setData([...data, item]);

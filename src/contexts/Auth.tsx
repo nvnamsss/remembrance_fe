@@ -1,12 +1,17 @@
 import React, { useContext, useReducer, useState } from "react";
 import { AuthenticationData, AuthProviderData } from "../dtos/Auth";
-import { AuthRequest, signin } from '../services/Auth';
+import { AuthRequest, ProfileData, signin } from '../services/Auth';
 
 export interface Data {
     status: string,
     user: null | string,
-    access_token: number,
+    user_id: number,
+    access_token: string,
+    refresh_token: string
+    profile: ProfileData
 }
+
+
 const initialState = {
     status: "idle",
     user: null,
@@ -48,7 +53,7 @@ function AuthProvider(props) {
     );
 }
 
-function doLogin(dispatch, user, access_token) {
+function doLogin(dispatch, user, access_token, refresh_token, profile: ProfileData) {
     try {
         dispatch({ status: "pending" });
 
@@ -60,6 +65,8 @@ function doLogin(dispatch, user, access_token) {
             status: "resolved",
             user: user,
             access_token: access_token,
+            refresh_token: refresh_token,
+            profile: profile,
             error: null
         });
     } catch (error) {
