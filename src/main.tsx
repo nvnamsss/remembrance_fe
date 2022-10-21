@@ -11,6 +11,16 @@ import { AuthProvider } from './contexts/Auth';
 import RequireAuth from './components/RequireAuth';
 import SignIn from './pages/SignIn';
 
+import { LocalizationProvider } from '@mui/x-date-pickers';
+// date-fns
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+// or for dayjs
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// or for luxon
+import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
+// or for moment
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+
 export default function App() {
   return (
 
@@ -39,7 +49,9 @@ export default function App() {
 
 ReactDOM.render(
   <AuthProvider>
-    <App></App>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <App></App>
+    </LocalizationProvider>
   </AuthProvider>,
 
   document.getElementById("root")

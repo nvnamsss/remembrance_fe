@@ -59,6 +59,19 @@ export interface CommentResponse {
     meta: Meta,
 }
 
+export interface CreateEventRequest {
+    code: string,
+    name: string,
+    description: string,
+    type: string,
+    content: string,
+    occurred_at: string,
+}
+
+export interface CreateEventResponse {
+    meta: Meta,
+}
+
 export const getEvent = async (id: number): Promise<GetEventResponse> =>
     (
         await remembranceInstance.get(`remembrance/v1/events/${id}`, {})
@@ -79,4 +92,9 @@ export const searchEvent = async (req: SearchEventRequest): Promise<SearchEventR
 
 export const comment = async (req: CommentRequest): Promise<CommentResponse> => (
     await remembranceInstance.post(`remembrance/v1/event/${req.event_id}/comment`, req)
+).data;
+
+
+export const createEvent = async(req: CreateEventRequest): Promise<CreateEventResponse> =>     (
+    await remembranceInstance.post(`remembrance/v1/event`, req)
 ).data;

@@ -586,3 +586,20 @@ button, input {
     height: 40px;
     width: 140px;
 }
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 314ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+.remembrance-modal-close-button {
+    background-color: #a8a6a6;
+}
