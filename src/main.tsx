@@ -6,7 +6,6 @@ import NotFound from "./pages/NotFound";
 import Wishes from "./pages/Wishes";
 import Remembrance from './pages/Remembrance';
 import Trade from './pages/Trade';
-import Heart from './gifts/Heart/Heart';
 
 import { AuthProvider } from './contexts/Auth';
 import RequireAuth from './components/RequireAuth';
@@ -29,7 +28,6 @@ export default function App() {
       <Routes>
         <Route index element={<Wishes />} />
         <Route path="/login" element={<SignIn></SignIn>}></Route>
-        <Route path="/heart" element={<Heart />} />
         <Route element={<RequireAuth />}>
           <Route path="/remembrance" element={<Remembrance />} />
           <Route path="/trade" element={<Trade />} />
