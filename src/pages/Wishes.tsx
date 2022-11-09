@@ -11,6 +11,7 @@ import CardClose from '../images/CardClose.jpg';
 import CardOpen from '../images/CardOpen.jpg';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { Helmet } from "react-helmet";
 // here we are importing some images 
 // but the Slider children can be an array of any element nodes, or your own components
 
@@ -22,7 +23,14 @@ function Wishes(): ReactElement {
         <>
             <Title value="Happy birthday ddanthanhh" />
             <Header></Header>
+
             <div className="archive post-type-archive post-type-archive-changelog font-mktg hfeed no-sidebar hero-image">
+                <div className="heartbox">
+                    <canvas id="pinkboard"></canvas>
+                </div>
+                <Helmet>
+                    <script src="scripts/heart-particle.js" type="text/javascript" />
+                </Helmet>
                 <article className="">
                     <p className="gutter-spacious font-adddington-medium">Sau vài tuần háo hức chờ quà thì cuối cùng bạn đã 24 rồi, mình cũng không còn hơn tuổi bạn nữa...ầy không sao a</p>
                     <p className="gutter-spacious font-adddington-medium">Nếu hỏi xem mình giỏi làm gì nhất có lẽ mình sẽ trả lời là ứng biến ạ, mình khá là bất ổn lại chơi game nhiều nên không lạ lắm nếu chỉ số ứng biến của mình cực cao :3</p>

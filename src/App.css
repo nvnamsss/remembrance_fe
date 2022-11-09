@@ -431,7 +431,7 @@ section {
 }
 
 .pill-label::before {
-    background: -webkit-linear-gradient(-70deg,#8250df 0%,#d42a32 100%);
+    background: -webkit-linear-gradient(-70deg, #8250df 0%, #d42a32 100%);
     border-radius: 16px;
     width: 100%;
     height: 100%;
@@ -440,17 +440,18 @@ section {
     border-radius: 16px;
 }
 
-.pill-label::before, .pill-label::after {
+.pill-label::before,
+.pill-label::after {
     content: "";
     position: absolute;
     z-index: -1;
 }
 
 .text-gradient-purple-coral {
-    background: -webkit-linear-gradient(-70deg,#8250df 0%,#d42a32 100%);
+    background: -webkit-linear-gradient(-70deg, #8250df 0%, #d42a32 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: rgba(0,0,0,0);
+    -webkit-text-fill-color: rgba(0, 0, 0, 0);
     -webkit-box-decoration-break: clone;
 }
 
@@ -491,10 +492,11 @@ section {
     color: var(--color-btn-primary-text);
     background-color: var(--color-btn-primary-bg);
     border-color: var(--color-btn-primary-border);
-    box-shadow: var(--color-btn-primary-shadow),var(--color-btn-primary-inset-shadow);
+    box-shadow: var(--color-btn-primary-shadow), var(--color-btn-primary-inset-shadow);
 }
 
-button, input {
+button,
+input {
     overflow: visible;
     overflow-x: visible;
     overflow-y: visible;
@@ -505,7 +507,8 @@ button, input {
     padding-right: 40%;
 }
 
-.form-control, .form-select {
+.form-control,
+.form-select {
     padding: 5px 12px;
     font-size: 14px;
     line-height: 20px;
@@ -518,7 +521,7 @@ button, input {
     border-radius: 6px;
     box-shadow: var(--color-primer-shadow-inset);
     transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
-    transition-property: color,background-color,box-shadow,border-color;
+    transition-property: color, background-color, box-shadow, border-color;
 }
 
 .auth-form-body .input-block {
@@ -592,14 +595,93 @@ button, input {
     transition: opacity 314ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open{
+.ReactModal__Overlay--after-open {
     opacity: 1;
 }
 
-.ReactModal__Overlay--before-close{
+.ReactModal__Overlay--before-close {
     opacity: 0;
 }
 
 .remembrance-modal-close-button {
     background-color: #a8a6a6;
+}
+
+/* hearthtml,
+heartBody {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+} */
+
+.heart_box {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#pinkboard {
+    position: relative;
+    margin: auto;
+    height: 500px;
+    width: 500px;
+    animation: animate 1.3s infinite;
+}
+
+#pinkboard:before,
+#pinkboard:after {
+    content: '';
+    position: absolute;
+    background: #FF5CA4;
+    width: 100px;
+    height: 160px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+#pinkboard:before {
+    left: 100px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#pinkboard:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(.8);
+    }
+
+    60% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
