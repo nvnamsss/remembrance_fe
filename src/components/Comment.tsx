@@ -1,7 +1,9 @@
 import React, { FC, useState } from 'react'
+import { FloatingLabel, Form, FormControl, FormGroup } from 'react-bootstrap';
 
 import { useAuthDispatch, useAuthState } from '../contexts/Auth';
 import { comment, CommentRequest } from '../services/Event';
+import { format } from 'date-fns'
 
 export interface CommentData {
     event_id: number,
@@ -44,10 +46,7 @@ export const Comment: FC<CommentData> = ({ event_id, items }) => {
 
     return <>
         <div>
-            <div className='comment-header comment-pl position-relative'>
-                <h1 className=''>
-                    Comments
-                </h1>
+            <div className='comment-header comment-pl position-relative font-adddington-medium'>
                 <div className='comment-react'>
                 </div>
                 <div className='comment-buttons'>
@@ -55,22 +54,23 @@ export const Comment: FC<CommentData> = ({ event_id, items }) => {
                 </div>
             </div>
 
-            <div className='comment-list'>
+            <div className='comment-list font-adddington-medium'>
                 <ul>
                     {
                         data.map((item: CommentItem) => {
                             return (
                                 <li className='d-block mr-2-l mt-2-l'>
                                     <div className='comment-li'>
+                                        <div className='comment-utilities'>
+                                            <span>{format(new Date(item.created_at), `EEEE, MMMM dd, yyyy 'at' hh:mm`)}</span>
+                                        </div>
                                         <div className='comment-content'>
-                                            <span className='comment-by' > <b>{item.commented_by}</b></span>
+                                            <span className='comment-by'> <b>{item.commented_by}</b></span>
                                             <div>
                                                 <span className='content'>{item.comment}</span>
                                             </div>
                                         </div>
-                                        <div className='comment-utilities'>
-                                            <span>{item.created_at}</span>
-                                        </div>
+
                                     </div>
 
                                 </li>
@@ -79,11 +79,19 @@ export const Comment: FC<CommentData> = ({ event_id, items }) => {
                         })
                     }
                 </ul>
- 
+
             </div>
-            <div className='comment-box'>
-                    <input className='comment-box-input' value={content} placeholder='Write here...' onChange={(e) => setContent(e.target.value)}></input>
-                    <button className='comment-box-send-button bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded bi bi-send' onClick={handleSubmit}>
+            <div className='comment-box font-adddington-medium'>
+                <Form.Control
+                    className='comment-box-input'
+                    type="textarea"
+                    placeholder='Write here...'
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                />
+                {/* <input className='comment-box-input' value={content} placeholder='Write here...' onChange={(e) => setContent(e.target.value)}></input> */}
+                <button className='comment-box-send-button' onClick={handleSubmit}>
+                    <img className='position-relative' src='../../assets/send-message.png' alt='Send' width='30'></img>
                 </button>
             </div>
         </div>

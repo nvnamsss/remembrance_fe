@@ -7,8 +7,10 @@ import { getEvent, searchEvent, createEvent, CreateEventRequest } from "../servi
 import Modal from 'react-modal';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { Button, Form, Stack } from "react-bootstrap";
-import {DateTimePicker} from '@mui/x-date-pickers';
+import { DateTimePicker } from '@mui/x-date-pickers';
 import { v4 as uuidv4 } from 'uuid';
+import Select from 'react-select';
+import { TriangleDownIcon, TriangleUpIcon } from '@primer/octicons-react'
 
 const modalStyles = {
     content: {
@@ -37,6 +39,11 @@ function Remembrance(): ReactElement {
     const [eventTime, setEventTime] = useState(new Date());
 
     const timeoutRef = useRef<any>(null);
+    const [showCategory, setShowCategory] = React.useState(false)
+    const type2Name = {
+        '': 'All',
+        'new': 'New',
+    }
 
     let page_size = 5;
 
@@ -116,7 +123,7 @@ function Remembrance(): ReactElement {
     }
 
     async function onClickCreate() {
-        let req : CreateEventRequest = {
+        let req: CreateEventRequest = {
             code: uuidv4(),
             name: eventName,
             description: "This event is posted by ddanthanhh",
@@ -138,36 +145,60 @@ function Remembrance(): ReactElement {
     return (
         <>
             <Header></Header>
-            <div>
+
+            <div className="divider-p24">
                 <Stack direction="horizontal" gap={3}>
-                    <TextField
-                        className="auth-form-body remembrance-search"
-                        size="small"
-                        label="Keyword"
+                    <Form.Control
+                        className='auth-form-body remembrance-search font-adddington-medium'
+                        type="textarea"
+                        placeholder='Keyword'
                         value={keyword}
                         onChange={(e) => setKeyword(e.target.value)}
                     />
 
-                    <select className="form-select remembrance-selected" value={type} onChange={(e) => setType(e.target.value)}>
+                    <div className="">
+                        <button className="remembrance-category-toggle" onClick={(e) => { setShowCategory(!showCategory) }}>
+                            {type2Name[type] + ' '}
+                            {
+                                showCategory ?
+                                    <TriangleUpIcon className="remembrance-category-toggle-icon"></TriangleUpIcon>
+                                    : <TriangleDownIcon className="remembrance-category-toggle-icon"></TriangleDownIcon>
+                            }
+                            {/* <svg className="octicon octicon-triangle-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width={16} height={16}></svg> */}
+                        </button>
+
+                        {
+                            showCategory ?
+                                <nav className='remembrance-category-dropdown position-absolute mt-12x z-100'>
+                                    <div className="remembrance-category-dropdown-content">
+                                        <a className='d-block' onClick={(e) => { setType('') }}>{type2Name['']}</a>
+                                        <a className='d-block' onClick={(e) => { setType('new') }}>{type2Name['new']}</a>
+                                    </div>
+                                </nav>
+                                : null
+                        }
+                    </div>
+
+                    {/* <select className="form-select remembrance-category font-adddington-medium " value={type} onChange={(e) => setType(e.target.value)}>
                         <option value="" selected>All</option>
                         <option value="new">New</option>
-                        <option value="edited">Recently edited</option>
-                    </select>
+                    </select> */}
 
-                    <Button onClick={openModal} variant="primary">Create</Button>{' '}
+                    <Button className='remembrance-create-button font-adddington-medium' onClick={openModal} variant="primary">Create</Button>{' '}
 
                     <Modal
+                        className='remembrance-modal'
                         isOpen={modalIsOpen}
                         onAfterOpen={afterOpenModal}
                         onRequestClose={onClickCloseModal}
                         style={modalStyles}
                         contentLabel="Example Modal"
                     >
-                        <div className="modal-header">
+                        <div className="modal-header font-adddington-medium">
                             <h5 className="modal-title fs-5" font-weight="bold">Create event</h5>
                         </div>
 
-                        <div className="modal-body">
+                        <div className="modal-body font-adddington-medium">
                             {/* <FloatingLabel
                                 controlId="floatingCode"
                                 label="Code"
@@ -177,11 +208,11 @@ function Remembrance(): ReactElement {
                             </FloatingLabel> */}
 
                             <FloatingLabel className="mb-3" controlId="floatingName" label="Name" >
-                                <Form.Control type="text" placeholder="Name" value={eventName} onChange={(newValue) => { setEventName(newValue.target.value); }}/>
+                                <Form.Control type="text" placeholder="Name" value={eventName} onChange={(newValue) => { setEventName(newValue.target.value); }} />
                             </FloatingLabel>
 
                             <FloatingLabel className="mb-4" controlId="floatingContent" label="Content">
-                                <Form.Control as="textarea" placeholder="Content" value={eventContent} onChange={(newValue) => { setEventContent(newValue.target.value); }}/>
+                                <Form.Control as="textarea" placeholder="Content" value={eventContent} onChange={(newValue) => { setEventContent(newValue.target.value); }} />
                             </FloatingLabel>
 
                             <DateTimePicker
@@ -192,16 +223,14 @@ function Remembrance(): ReactElement {
                                     setEventTime(newValue);
                                 }}
                             />
-                         
+
                         </div>
                         <div className="modal-footer">
-                            <Button className="remembrance-modal-close-button" variant="secondary" onClick={onClickCloseModal}>Close</Button>
-                            <Button onClick={onClickCreate}>Create</Button>
+                            <Button className="remembrance-modal-close-button font-adddington-medium" variant="secondary" onClick={onClickCloseModal}>Close</Button>
+                            <Button className="remembrance-create-button font-adddington-medium" onClick={onClickCreate}>Create</Button>
                         </div>
                     </Modal>
                 </Stack>
-
-
 
             </div>
 

@@ -417,9 +417,9 @@ section {
     position: absolute;
     left: 12px;
     width: 2px;
-    background-color: rgb(148, 148, 148);
-    top: 0;
-    bottom: 0;
+    background-color: rgba(27, 31, 36, 0.15);
+    top: 32px;
+    bottom: 0px;
     opacity: 0.5;
 }
 
@@ -550,45 +550,165 @@ input {
     padding-right: 48px;
 }
 
-.comment-content {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    background-color: rgb(200, 200, 200);
-    border-radius: 16px;
+@media screen and (min-width: 240px) {
+    .comment-content {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background-color: rgb(200, 200, 200);
+        border-radius: 16px;
+    }
+
+    .comment-box-input {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background-color: rgb(200, 200, 200);
+        border-radius: 16px;
+        max-width: 75%;
+        display: inline;
+    }
 }
+
+@media screen and (min-width: 768px) {
+    .comment-content {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background-color: rgb(200, 200, 200);
+        border-radius: 16px;
+    }
+
+    .comment-box-input {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background-color: rgb(200, 200, 200);
+        border-radius: 16px;
+        width: 512px;
+        display: inline;
+    }
+}
+
+
+
+
 
 .comment-utilities {
     clear: both;
+    padding-left: 8px;
 }
 
 .comment-box {
+    padding-top: 16px;
     padding-left: 48px;
 }
 
-.comment-box-input {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    background-color: rgb(200, 200, 200);
-    border-radius: 16px;
-    width: 400px;
-}
 
 .comment-box-send-button {
+    position:relative;
     margin-left: 8px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 24px;
+    top: 10px;
+    display: inline;
+    bottom:8px;
 }
 
 .remembrance-search {
-    margin-right: 32px;
+    border-color: #24292f;
+    border-radius: 24px;
+    max-width: 256px;
+    height: 38px;
+    border: 2px solid #000000;
 }
 
-.remembrance-selected {
-    height: 40px;
+.remembrance-category {
+    height: 38px;
     width: 140px;
+    border-radius: 24px;
+    border-color: #24292f;
 }
+
+.remembrance-category-toggle {
+    border-color: #000000;
+    border-radius: 24px;
+    border: 2px solid;
+    height: 38px;
+    padding-left: 16px;
+    padding-right: 12px;
+    min-width: 90px;
+}
+
+.remembrance-category-toggle-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.remembrance-category-dropdown {
+    box-shadow: 0 0 0 1px rgb(53 72 91 / 14%), 0 3px 2px rgb(0 0 0 / 4%), 0 7px 5px rgb(0 0 0 / 2%), 0 13px 10px rgb(0 0 0 / 2%), 0 22px 17px rgb(0 0 0 / 2%);
+    border-radius: 6px;
+    background-color: white;
+}
+
+
+.remembrance-category-dropdown-content {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-width: 100%;
+    min-width: 220px;
+    max-height: 100px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.remembrance-category-dropdown-content::-webkit-scrollbar {
+    width: 2px;
+    padding-left: 16px;
+}
+
+.remembrance-category-dropdown-content::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px grey;
+    border-radius: 1px;
+    padding-left: 16px;
+}
+
+.remembrance-category-dropdown-content::-webkit-scrollbar-thumb {
+    background: #b7bfc7;
+    padding-left: 16px;
+}
+
+
+@media only screen and (min-width: 200px) {
+    .remembrance-create-button {
+        border-radius: 24px;
+        background-color: #f6f8fa;
+        color: #0969da;
+        border-color: #24292f;
+        border: 2px solid #000000;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    .remembrance-create-button {
+        border-radius: 24px;
+        background-color: #f6f8fa;
+        color: #0969da;
+        border-color: #24292f;
+        padding-left: 24px;
+        padding-right: 24px;
+        border: 2px solid #000000;
+    }
+
+}
+
 
 .ReactModal__Overlay {
     opacity: 0;
@@ -603,8 +723,41 @@ input {
     opacity: 0;
 }
 
+@media screen and (min-width: 200px) {
+    .remembrance-modal {
+        width: 324px;
+        position: absolute;
+        inset: 50% 40px auto 50%;
+        border: 1px solid rgb(204, 204, 204);
+        background: rgb(255, 255, 255);
+        overflow: auto;
+        border-radius: 4px;
+        outline: none;
+        padding: 20px;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .remembrance-modal {
+        width: 50%;
+        position: absolute;
+        inset: 50% 40px auto 50%;
+        border: 1px solid rgb(204, 204, 204);
+        background: rgb(255, 255, 255);
+        overflow: auto;
+        border-radius: 4px;
+        outline: none;
+        padding: 20px;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
 .remembrance-modal-close-button {
+    border-radius: 24px;
     background-color: #a8a6a6;
+    border-color: #24292f;
 }
 
 /* hearthtml,
@@ -630,9 +783,9 @@ heartBody {
 }
 
 canvas {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 #pinkboard {
@@ -684,4 +837,25 @@ canvas {
     100% {
         transform: scale(1);
     }
+}
+
+.divider-p24 {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid rgba(27, 31, 36, 0.15);
+}
+
+.navbar {
+    color: #000000;
+    font-weight: 500;
+}
+
+.mt-12x {
+    margin-top: 12px;
+}
+
+.z-100 {
+    z-index: 100;
 }
