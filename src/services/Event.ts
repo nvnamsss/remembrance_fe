@@ -66,6 +66,7 @@ export interface CreateEventRequest {
     type: string,
     content: string,
     occurred_at: string,
+    tags: string[],
 }
 
 export interface CreateEventResponse {

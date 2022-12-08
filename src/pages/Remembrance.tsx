@@ -11,6 +11,7 @@ import { DateTimePicker } from '@mui/x-date-pickers';
 import { v4 as uuidv4 } from 'uuid';
 import Select from 'react-select';
 import { TriangleDownIcon, TriangleUpIcon } from '@primer/octicons-react'
+import { WithContext as ReactTags } from 'react-tag-input';
 
 const modalStyles = {
     content: {
@@ -32,6 +33,7 @@ function Remembrance(): ReactElement {
     const [page, setPage] = useState(1);
     const [keyword, setKeyword] = useState("");
     const [type, setType] = useState("");
+    const [tags, setTags] = React.useState([]);
 
     // creating event
     const [eventName, setEventName] = useState("");
@@ -44,6 +46,13 @@ function Remembrance(): ReactElement {
         '': 'All',
         'new': 'New',
     }
+
+    const KeyCodes = {
+        comma: 188,
+        enter: 13
+    };
+
+    const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
     let page_size = 5;
 
@@ -105,8 +114,6 @@ function Remembrance(): ReactElement {
     useEffect(() => {
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         timeoutRef.current = setTimeout(reset, 500);
-        console.log("hi mom");
-
     }, [keyword, type]);
 
     function openModal() {
@@ -123,12 +130,17 @@ function Remembrance(): ReactElement {
     }
 
     async function onClickCreate() {
+        let ts: string[] = [];
+        for (let i = 0; i < tags.length; i++) {
+            ts.push(tags[i]["id"]);
+        }
         let req: CreateEventRequest = {
             code: uuidv4(),
             name: eventName,
             description: "This event is posted by ddanthanhh",
             content: eventContent,
             type: 'Browser',
+            tags: ts,
             occurred_at: eventTime.toISOString()
         }
 
@@ -141,6 +153,15 @@ function Remembrance(): ReactElement {
         console.log(res);
         setIsOpen(false);
     }
+
+    const handleDelete = i => {
+        setTags(tags.filter((tag, index) => index !== i));
+    };
+
+    const handleAddition = tag => {
+        setTags([...tags, tag]);
+        console.log(tags);
+    };
 
     return (
         <>
@@ -179,11 +200,6 @@ function Remembrance(): ReactElement {
                         }
                     </div>
 
-                    {/* <select className="form-select remembrance-category font-adddington-medium " value={type} onChange={(e) => setType(e.target.value)}>
-                        <option value="" selected>All</option>
-                        <option value="new">New</option>
-                    </select> */}
-
                     <Button className='remembrance-create-button font-adddington-medium' onClick={openModal} variant="primary">Create</Button>{' '}
 
                     <Modal
@@ -216,6 +232,7 @@ function Remembrance(): ReactElement {
                             </FloatingLabel>
 
                             <DateTimePicker
+                            className="mb-3"
                                 label="Time"
                                 renderInput={(props) => <TextField {...props} />}
                                 value={eventTime}
@@ -223,7 +240,14 @@ function Remembrance(): ReactElement {
                                     setEventTime(newValue);
                                 }}
                             />
-
+                            <ReactTags
+                                tags={tags}
+                                delimiters={delimiters}
+                                handleDelete={handleDelete}
+                                handleAddition={handleAddition}
+                                inputFieldPosition="top"
+                                autocomplete
+                            />
                         </div>
                         <div className="modal-footer">
                             <Button className="remembrance-modal-close-button font-adddington-medium" variant="secondary" onClick={onClickCloseModal}>Close</Button>
