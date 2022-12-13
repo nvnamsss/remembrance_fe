@@ -33,12 +33,12 @@ function Remembrance(): ReactElement {
     const [page, setPage] = useState(1);
     const [keyword, setKeyword] = useState("");
     const [type, setType] = useState("");
-    const [tags, setTags] = React.useState([]);
 
     // creating event
     const [eventName, setEventName] = useState("");
     const [eventContent, setEventContent] = useState("");
     const [eventTime, setEventTime] = useState(new Date());
+    const [tags, setTags] = React.useState([]);
 
     const timeoutRef = useRef<any>(null);
     const [showCategory, setShowCategory] = React.useState(false)
@@ -255,8 +255,8 @@ function Remembrance(): ReactElement {
                         </div>
                     </Modal>
                 </Stack>
-
-            </div>
+          
+            </div>  
 
 
             <Timeline items={data}></Timeline>

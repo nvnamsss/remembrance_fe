@@ -950,3 +950,19 @@ canvas {
     background: none;
     padding-left: 6px;
 }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.edit-button {
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+
+.edit-button svg {
+    vertical-align: baseline;
+}
