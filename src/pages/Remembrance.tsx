@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Select from 'react-select';
 import { TriangleDownIcon, TriangleUpIcon } from '@primer/octicons-react'
 import { WithContext as ReactTags } from 'react-tag-input';
+import { useAuthState } from "../contexts/Auth";
 
 const modalStyles = {
     content: {
@@ -26,6 +27,8 @@ const modalStyles = {
 
 
 function Remembrance(): ReactElement {
+    const auth = useAuthState();
+
     const [data, setData] = useState([])
     const [lastPage, setLastPage] = useState(false);
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -75,6 +78,8 @@ function Remembrance(): ReactElement {
                     "content": element.content,
                     "tags": element.tags,
                     "comments": element.comments,
+                    "creator_id": element.creator_id,
+                    "creator_display_name": element.creator_display_name
                 })
             });
         }
@@ -134,7 +139,9 @@ function Remembrance(): ReactElement {
         for (let i = 0; i < tags.length; i++) {
             ts.push(tags[i]["id"]);
         }
+
         let req: CreateEventRequest = {
+            creator_id: auth["profile"]["account_id"],
             code: uuidv4(),
             name: eventName,
             description: "This event is posted by ddanthanhh",

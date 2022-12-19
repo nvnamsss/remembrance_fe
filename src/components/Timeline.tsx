@@ -8,6 +8,7 @@ import { TextField } from '@mui/material';
 import { updateEvent, UpdateEventRequest } from '../services/Event';
 import Modal from 'react-modal';
 import { WithContext as ReactTags } from 'react-tag-input';
+import { useAuthState } from '../contexts/Auth';
 
 export interface TimelineData {
     items: TimelineItem[]
@@ -20,6 +21,8 @@ export interface TimelineItem {
     content: string,
     tags: string[],
     comments: CommentItem[],
+    creator_id: number,
+    creator_display_name: string
 }
 
 const modalStyles = {
@@ -35,6 +38,8 @@ const modalStyles = {
 
 
 const Timeline: FC<TimelineData> = ({ items }) => {
+    const auth = useAuthState();
+
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [eventID, setEventID] = useState(0);
     const [eventName, setEventName] = useState("");
@@ -168,14 +173,20 @@ const Timeline: FC<TimelineData> = ({ items }) => {
                                     </svg>
                                     <h2 className="h5-mktg font-adddington-medium">
                                         <a className='Link--primary'>{item.title}</a>
-                                        <button className='edit-button' onClick={() => {
-                                            onClickEdit(item);
-                                        }}>
-                                            <PencilIcon className=''></PencilIcon>
-                                        </button>
+                                        {
+                                            auth["profile"]["account_id"] === item.creator_id ?
+                                                <button className='edit-button' onClick={() => {
+                                                    onClickEdit(item);
+                                                }}>
+                                                    <PencilIcon className=''></PencilIcon>
+                                                </button>
+                                                :
+                                                null
+                                        }
+
 
                                     </h2>
-                                    <time className='d-block f5-mktg text-medium color-fg-muted mt-14px'>{format(new Date(item.occurred_at), `EEEE, MMMM dd, yyyy 'at' hh:mm`)}</time>
+                                    <time className='d-block f5-mktg text-medium color-fg-muted mt-14px'>{`${item.creator_display_name} · ${format(new Date(item.occurred_at), `EEEE, MMMM dd, yyyy 'at' hh:mm`)}`}</time>
                                     {item.tags?.length > 0 &&
                                         <ul className='d-inline-block list-style-none post-hero__categories mt-2-l'>
                                             {

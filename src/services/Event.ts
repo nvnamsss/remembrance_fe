@@ -38,6 +38,8 @@ export interface SearchEventData {
     tags: string[],
     occurred_at: string,
     comments: SearchEventComment[],
+    creator_id: number,
+    creator_display_name: string
 }
 
 export interface SearchEventComment {
@@ -60,6 +62,7 @@ export interface CommentResponse {
 }
 
 export interface CreateEventRequest {
+    creator_id: number,
     code: string,
     name: string,
     description: string,
